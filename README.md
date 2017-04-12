@@ -16,8 +16,8 @@ Methods
 There are numerous modeling approaches available to forecast bankruptcy rates. This report will summarizesome of the most common approaches, highlight the one used for our final model, and discuss what made itthe optimal choice. Each model was fit by altering various parameters. These parameters change how themodel fits the data and in turn what predictions it makes. 
 
 They account for the following: 
-	* Overall trend -does bankruptcy rate increase or decrease with time?
-	* Seasonal trend - does bankruptcy rate have similar fluctuations within each year?
+* Overall trend -does bankruptcy rate increase or decrease with time?
+* Seasonal trend - does bankruptcy rate have similar fluctuations within each year?
 
 **Exponential smoothing**: The smoothing method uses a set of equations to filter or smooth a model to thedata. Specifically this method calculates an average of the observed bankruptcy rates based on the currenttime in addition to a previous prediction of the rates at an earlier time.
 
