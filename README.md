@@ -27,5 +27,49 @@ They account for the following:
 
 **VAR**: The last approach considers external variables as well. However unlike SARIMAX, it treats all variablessymmetrically. While SARIMAX only considers the effect the outside variables have on bankruptcy rate, theVAR approach considers all variables as possibly affecting each other. This method simultaneously accountsfor these interdependencies.
 
+Model Construction
+------------------
+
+To select an appropriate modeling approach, we first visualized how bankruptcy data has changed over timefrom 1987 through 2010. As shown inFigure 1, the bankruptcy rates have generally increased since 1987,with marked within-year peaks and valleys and prolonged periods of both growth and decline. The trend over time indicates the need for a model that can handle “non-stationary” data, and cyclical trends indicatethat the model should account for seasonality.
+
+Next, we looked at the time trends of our external variables (unemployment, population, and HPI) to assesswhether a univariate or multivariate approach would be best.Figure 2plots each of these time series curvesalong with bankruptcy rates, all scaled to fit within the same axis. We judged HPI to be most relatedto bankruptcy so included it in our model, treating it as a one-directional, non-synergistic relationship.Therefore, we chose SARIMAX as our modeling approach.
+
+In order to tune the model inputs for optimal forecasting accuracy, we fit various models on a subset ofyears, 1987–2005, and validated each model’s performance in predicting bankruptcy rates for 2006–2010.Model fit was determined by calculating the average difference between the predicted bankruptcy rates forour validation time frame and the observed bankruptcy rates for the same period. A smaller difference meanta more accurate prediction and a better fitting model.
+
+Once we found the model parameters that yielded the best fit for the data from January 2006 to December2010, we re-fit the model using all of our data from January 1987 to December 2010. While the model wasoptimized to give us the smallest difference, it was also subject to meeting certain modeling assumptionsThese constraints involved analysis of the residuals, or the difference between our model-estimated valuesand the actual values, from January 2006 to December 2010. They included the following: - Normality -does the distribution of residuals follow a bell curve? - Zero-mean - is the average value of the residualszero? - Constant variance - do the residuals vary with constant magnitude across all years and months? -Zero-correlation - are residuals prone to be similar to the residual from the previous year or month?
+
+A check of these model assumptions revealed significant changes in variance over time, which would invalidateour predictions from that model. To correct for this, we log-transformed the bankruptcy rates and refit themodel. The resulting model passed all assumptions and was used to predict values for bankruptcy rate fromJanuary 2011 to December 2012.
+
+Final Model
+-----------
+
+The final model we chose is a SARIMAX(3,1,3)x(2,0,0)[12] model on log-transformed bankruptcy rates,with housing price index as an external variable. It predicted values of bankruptcy rate close to the actualvalues for the validation time frame, January 2006 to December 2010, while satisfying all required modelingassumptions. Although this model uses outside variables for predicting bankruptcy rates, the model waskept conservative. Housing price index was the only external variable included. This model passes all fourof our modeling assumptions, with residuals demonstrating normality, zero mean, constant variance, and uncorrelatedness.
+
+The bankruptcy rates predicted by the model can be seen inFigure 3andTable 1, below. Included in theplot are 95% prediction intervals. These intervals are the range of values between which we are confident thatthe true forecasted bankruptcy rate lies.
+
+In order to forecast with a SARIMAX model, future values of the external variable, housing price index, areneeded. The prediction interval shown in the plot does not account for the uncertainty of predicting futurehousing price index values. Predictions of bankruptcy rate were calculated using the observed housing priceindex for 2011 and 2012.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
