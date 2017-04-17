@@ -32,7 +32,7 @@ Model Construction
 
 To select an appropriate modeling approach, we first visualized how bankruptcy data has changed over timefrom 1987 through 2010. As shown inFigure 1, the bankruptcy rates have generally increased since 1987,with marked within-year peaks and valleys and prolonged periods of both growth and decline. The trend over time indicates the need for a model that can handle “non-stationary” data, and cyclical trends indicatethat the model should account for seasonality.
 
-![alt tag](https://github.com/zefeng-zhang/Time-Series-Analysis-of-Canadian-National-Bankruptcy-Rates/tree/master/images)
+![alt tag](https://github.com/zefeng-zhang/Time-Series-Analysis-of-Canadian-National-Bankruptcy-Rates/blob/master/images/figure1.png)
 
 Next, we looked at the time trends of our external variables (unemployment, population, and HPI) to assesswhether a univariate or multivariate approach would be best.Figure 2plots each of these time series curvesalong with bankruptcy rates, all scaled to fit within the same axis. We judged HPI to be most relatedto bankruptcy so included it in our model, treating it as a one-directional, non-synergistic relationship.Therefore, we chose SARIMAX as our modeling approach.
 
